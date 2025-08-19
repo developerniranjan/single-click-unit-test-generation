@@ -1,0 +1,67 @@
+{
+  "name": "single-click-unit-test-generation",
+  "displayName": "single click unit test generation",
+  "description": "single click unit test generation",
+  "author": {
+    "name": "ems learning team",
+    "email": ""},
+
+  "publisher": "Niranjankumar",
+  "version": "0.1.2",
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+       {
+      "command": "single-click-create-unit-test",
+      "title": "Unit Test Generation",
+      "category": "Unit Test"
+    }
+    ],"menus": {
+    "editor/context": [
+      {
+        "command": "single-click-create-unit-test",
+        "when": "editorHasSelection",
+        "group": "navigation"
+      }
+    ],
+    "view/title": [
+      {
+        "command": "single-click-create-unit-test",
+        "when": "view == 'Unit Test Generation'",
+        "group": "navigation" 
+      },
+      {
+        "command": "single-click-create-unit-test",
+        "when": "view == 'update unit test generation'",
+         "group": "navigation" 
+      }
+    ]
+  }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.101.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
